@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 
 import { Route, Routes, Link } from 'react-router-dom';
+import CustomSVG from '../pages/CustomSVG/CustomSVG';
+import ForbiddenOverlap from '../pages/ForbiddenOverlap/ForbiddenOverlap';
+import SimpleRectangle from '../pages/SimpleRectangle/SimpleRectangle';
 
 const StyledApp = styled.div`
 `;
@@ -9,35 +12,15 @@ export function App() {
   return (
     <StyledApp>
       <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
+        <Link to="/">Simple</Link>
+        <Link to="/custom-svg">SVG</Link>
+        <Link to="/no-overlap">No Overlap</Link>
       </div>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
+        <Route path="/" element={<SimpleRectangle />}/>
+        <Route path="/custom-svg" element={<CustomSVG />}/>
+        <Route path="/no-overlap" element={<ForbiddenOverlap />}/>
       </Routes>
-      {/* END: routes */}
     </StyledApp>
   );
 }
