@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gsap-demo/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@gsap-demo/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@gsap-demo/ui/components": ["libs/ui/components/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

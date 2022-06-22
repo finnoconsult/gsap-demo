@@ -5,6 +5,7 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "draggable-canvas-items": "apps/draggable-canvas-items",
-    "draggable-canvas-items-e2e": "apps/draggable-canvas-items-e2e"
+    "draggable-canvas-items-e2e": "apps/draggable-canvas-items-e2e",
+    "ui-components": "libs/ui/components"
   }
 }
