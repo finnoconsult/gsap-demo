@@ -7,15 +7,19 @@ import SimpleRectangle from '../pages/SimpleRectangle/SimpleRectangle';
 
 const StyledApp = styled.div`
 `;
+const StyledMenu = styled.div`
+  display:flex;
+  gap: 10px;
+`;
 
 export function App() {
   return (
     <StyledApp>
-      <div role="navigation">
+      <StyledMenu role="navigation">
         <Link to="/">Simple</Link>
         <Link to="/custom-svg">SVG</Link>
         <Link to="/no-overlap">No Overlap</Link>
-      </div>
+      </StyledMenu>
       <Routes>
         <Route path="/" element={<SimpleRectangle />}/>
         <Route path="/custom-svg" element={<CustomSVG />}/>
