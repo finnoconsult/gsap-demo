@@ -1,28 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { Message } from '@gsap-demo/api-interfaces';
+import styled from '@emotion/styled';
 
-export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
+import { Route, Routes, Link } from 'react-router-dom';
 
-  useEffect(() => {
-    fetch('/api')
-      .then((r) => r.json())
-      .then(setMessage);
-  }, []);
+const StyledApp = styled.div`
+`;
 
+export function App() {
   return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to draggable-canvas-items!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="Nx - Smart, Fast and Extensible Build System"
-        />
+    <StyledApp>
+      <div role="navigation">
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/page-2">Page 2</Link>
+          </li>
+        </ul>
       </div>
-      <div>{m.message}</div>
-    </>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              This is the generated root route.{' '}
+              <Link to="/page-2">Click here for page 2.</Link>
+            </div>
+          }
+        />
+        <Route
+          path="/page-2"
+          element={
+            <div>
+              <Link to="/">Click here to go back to root page.</Link>
+            </div>
+          }
+        />
+      </Routes>
+      {/* END: routes */}
+    </StyledApp>
   );
-};
+}
 
 export default App;
