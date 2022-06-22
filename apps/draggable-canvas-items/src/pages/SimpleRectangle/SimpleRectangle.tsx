@@ -48,7 +48,13 @@ export function SimpleRectangle(props: SimpleRectangleProps) {
     if (container && item && container.current && item.current) {
       (window as any).draggables = Draggable.create(item.current, {
         bounds: container.current,
-        onDragEnd: ({x, y}) => {setX(x); setY(y)},
+        onDragEnd: function({x, y}) {
+          if (this['hitTest'](item2.current)) { // This works only with rectangular elements ... :(
+            console.log('HIT ITEM 2!');
+          } else {
+            setX(x); setY(y);
+          }
+      }
       });
     }
   }, [container, item]);
